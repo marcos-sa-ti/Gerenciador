@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html layout:decorate="~{modelo}">
+<head>
+<meta charset="UTF-8">
+<title> Página de Cadastro</title>
+</head>
+
+<body>
+
+				<div layout:fragment="conteudo" >
+				<br>
+				<h2> Usuário - Inclusão </h2>
+				<hr>
+				
+				<!-- ************************ Link *******************************  -->
+				<form method="post" th:action="@{/projetoweb/salvarusuario}" th:object="${item}" novalidade>
+				<input type="hidden" name="id" value="1" th:if="*{id != null}" th:field="*{id}"  />
+							<div class="form-group row">
+                        <label for="inputNomecompleto" class="col-sm-2 col-form-label"> Nome Completo </label>
+                        <div class="col-sm-10">
+                          	<input type="text" class="form-control" id="inputNomecompleto" placeholder="Digite o seu nome completo" th:field="*{nomecompleto}" required />
+                        </div>
+                      </div>
+                    
+                    
+                    
+                    <div class="form-group row">
+                      <label for="inputPassword" class="col-sm-2 col-form-label"> Senha </label>
+                      <div class="col-sm-10">
+                        <input type="password" class="form-control" id="inputsenha" autocomplete="on" placeholder="Digite uma senha" th:field="*{senha}" />
+                      </div>
+                    </div>
+                    
+                    
+                    <div class="form-group row">
+                        <label for="inputUsername" class="col-sm-2 col-form-label"> Nome de Usuario </label>
+                        <div class="col-sm-10">
+                          	<input type="text" class="form-control" id="inputUsername" placeholder="Digite um nome pro seu usuario" th:field="*{usuario}" />
+                        </div>
+                      </div>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <fieldset class="form-group">
+                      <div class="row">
+                        <legend class="col-form-label col-sm-2 pt-0">Status</legend>
+                        <div class="col-sm-10">
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="Ativado" checked th:field="*{status}" />
+                            <label class="form-check-label" for="gridRadios1">
+                              Ativado
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="Desativado" th:field="*{status}" />
+                            <label class="form-check-label" for="gridRadios2">
+                              Desativado
+                            </label>
+                          </div>
+                          
+                        </div>
+                      </div>
+                    </fieldset>
+                    <div class="form-group row">
+                      <div class="col-sm-2">Papéis</div>
+                      <div class="col-sm-10">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="gridCheck1" value="Administrador" th:field="*{papelTemp}" />
+                          <label class="form-check-label" for="gridCheck1">
+                            Administrador 
+                          </label>
+                          <br>
+                          <input class="form-check-input" type="checkbox" id="gridCheck2" value="Gerente"  th:field="*{papelTemp}" />
+                          <label class="form-check-label" for="gridCheck2">
+                            Gerente 
+                          </label>
+                          <br>
+                          <input class="form-check-input" type="checkbox" id="gridCheck3" value="Analista" th:field="*{papelTemp}" />
+                          <label class="form-check-label" for="gridCheck3">
+                            Analista
+                          </label>  
+
+                          <br>
+                          <input class="form-check-input" type="checkbox" id="gridCheck4" value="Técnico"   th:field="*{papelTemp}" />
+                          <label class="form-check-label" for="gridCheck4">
+                            Técnico 
+                          </label>
+                          <br>
+                          <input class="form-check-input" type="checkbox" id="gridCheck5"  value="Menor Aprendiz" th:field="*{papelTemp}" />
+                          <label class="form-check-label" for="gridCheck5">
+                            Menor Aprendiz 
+                          </label>
+                          
+                        </div>
+                      </div>
+                    </div>
+				
+				<div class="container">
+                        <div class="form-row">
+                            <div class="col-md-12">
+                                <hr>
+                                        
+                                <button style="text-align: center; width: 100px; " type="button" class="btn btn-success"> Salvar </button>
+                                <button style="text-align: center; width: 100px;" type="button" class="btn btn-danger" th:href="@{/projetoweb}" > Cancelar </button>
+                            	<br>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+					<br>
+									
+				
+				
+				</form>
+							
+		</div>		
+							
+				
+				
+					
+
+ 
+  </body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

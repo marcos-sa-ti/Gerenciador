@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<!--  Scripts necessarios -->
+
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
+integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" 
+crossorigin="anonymous">
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
+integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" 
+crossorigin="anonymous"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" 
+integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" 
+crossorigin="anonymous"></script>
+
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" 
+integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" 
+crossorigin="anonymous"></script>
+
+
+<!--  Final: Scripts necessarios -->
+
+
+<style>
+
+main > .container{
+padding: 60px 15px 0; 
+}
+
+.footer{
+background-color:#f5f5f5;
+}
+
+.footer > .container{
+padding-right:15px;
+padding-letf:15px;
+}
+
+code{
+font-size: 80px;
+}
+
+.bd-placeholder-img{
+font-size: 1.125rem;
+text-anchor:middle;
+-webkit-user-select: none;
+-moz-user-select:none;
+-ms-user-select:none;
+user-select:none;
+}
+
+@media (min-width: 768px){
+.bd.placeholder-img-lg{
+		font-size: 3.5rem;
+	}
+}
+
+</style>
+	
+</head>
+
+<body class="d-flex flex-column h=100">
+
+	<!-- ******************************************* NAVBAR ****************************************** -->
+	<header>
+		<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+			<a class="navbar-brand" href="#">Agenda</a>
+		</nav>
+	</header>
+	<br>
+	<!-- ******************************************* Final: NAVBAR ****************************************** -->
+	
+	
+	<main role="main"> 
+	<div class="container">
+	<div class="row">
+	<div class="col-md-12">
+			
+		
+		
+		<h2 style="text-align:center">Gerenciamento de Usuários </h2>
+		<br>
+		
+		<table class="table">
+			<thead class="thead-dark">
+				<tr>
+					<th scope="col"> ID </th>
+					<th scope="col"> Nome </th>
+					<th scope="col"> Status </th>
+					<th scope="col"> Ações </th>
+				</tr>
+			</thead>
+			<tbody>
+				<!-- O TR vai ser gerado de acordo com a quantidade de itens -->
+				
+					<tr>
+					<td scope="row"> 1 </td>
+					<td> Fulano da Silva </td>
+					<td> Ativado </td>
+					<td>
+						<a class="btn btn-primary" > Editar </a> 
+						<a href="#modalDelete" data-toggle="modal" class="btn btn-danger" > Remover </a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+
+		<!--  Inicio para o botão de adicionar novo  -->
+		<div class="row">
+			<div class="container">
+				<br> 
+				<a href="#" type="button" class="btn btn-success">Adicionar novo</a>
+				
+				<!--  ****************** Inicio para tela modal de excluir um usuario *************************  -->
+				<div id="modalDelete" class="modal fade" tabindex="-1" role="dialog">
+					
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+				<!-- ******************************* Inicio para o header ******************************* -->			
+							<header class="modal-header">
+								<h5> Confirmar remoção </h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Fechar"> 
+										<span aria-hidden="true">X</span>
+									</button>
+							</header>
+				<!-- ***********************************  Inicio para o corpo do modal ***************************************** -->
+							
+							<div class="modal-body">
+								<p class="modal-message"> Confirmar a exclusão? </p> 
+								
+							</div>
+				<!-- *********************************** Final: para o corpo do modal **************************************** -->			
+				<!-- *********************************** Inicio para o footer do modal ***************************************  -->			
+							<footer class="modal-footer">
+									<button type="button" class="btn btn-secondary" data-dismiss="modal"> Não</button>
+									<form style="display: inline-block">
+											<button type="submit" class="btn btn-danger"> Sim</button>
+									</form> 
+							</footer>	
+				<!--  Final: Footer do modal -->
+						</div>
+					</div> 
+				</div>
+				<!--  Final: Para tela modal de excluir um usuario  -->
+			
+			</div>
+		</div>	
+		<!-- Final: para o botão de adicionar novo  -->
+		
+		
+		
+		</div>
+		</div>
+	</div>
+	</main>
+
+</body>
+</html>

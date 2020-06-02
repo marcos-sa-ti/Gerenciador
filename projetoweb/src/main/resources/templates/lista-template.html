@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html layout:decorate="~{modelo}">
+<head>
+<meta charset="UTF-8">
+
+<script>
+
+$(function(){
+	
+	$('#modalDelete').on('show.bs.modal', function (event) {
+		  var button = $(event.relatedTarget) // Button that triggered the modal
+		  //var recipient = button.data('whatever') // Extract info from data-* attributes
+		  var actionUrl = button.data('actionUrl') 
+		  var itemId = button.data('itemId')
+		  
+		  
+		  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+		  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+		  var modal = $(this)
+		  modal.find('.modal-message').text('Confirma a remoção do item  ' + itemId + '?' )
+		  modal.find('.modal-footer form').attr ('action', actionUrl)
+		})
+	
+	
+})
+
+
+</script>
+</head>
+
+<body>
+
+	
+	<div layout:fragment="conteudo">
+			
+		
+		
+		<h2 style="text-align:center"> Gerenciamento de Usuários </h2>
+		
+		<!--  Mensagem que o usuario não existe -->
+		
+		<div class="alert alert-danger" role="alert" th:if="${msgErro != null}" th:text="${msgErro}"> </div>
+		<div class="alert alert-success" role="alert" th:if="${msgSucesso != null}" th:text="${msgSucesso}"> </div> 
+		<!--  Final: Mensagem que o usuario não exite -->
+		
+		<br>
+		
+		<table class="table">
+			<thead class="thead-dark">
+				<tr>
+					<th>#</th>
+					<th scope="col"> ID </th>
+					<th scope="col"> Nome </th>
+					<th scope="col"> Status </th>
+					<th scope="col"> Ações </th>
+				</tr>
+			</thead>
+			<tbody>
+				<!-- O TR vai ser gerado de acordo com a quantidade de itens -->
+				
+					<tr th:each="item, stat : ${itens}" >
+					<td th:text="${stat.count}" > Teste</td>
+					<td th:text="${item.id}" scope="row"> 1 </td>
+					<td th:text="${item.nomecompleto}"> N/A </td>
+					<td th:text="${item.status}"> Ativado </td>
+					<td>
+						<a class="btn btn-primary" th:href="@{/projetoweb/editar/{id}(id=${item.id})}" > Editar </a> 
+						<a href="#modalDelete" data-toggle="modal" class="btn btn-danger" th:attr="data-action-url=@{/projetoweb/removeruser/{id}(id=${item.id})}, data-item-id=${item.id}"> Remover </a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+
+		<!--  Inicio para o botão de adicionar novo  -->
+		<div class="row">
+			<div class="container">
+				<br> 
+				<a href="#" type="button" class="btn btn-success" th:href="@{/projetoweb/incluirusuario} ">Adicionar novo</a>
+				
+				<!--  ****************** Inicio para tela modal de excluir um usuario *************************  -->
+				<div id="modalDelete" class="modal fade" tabindex="-1" role="dialog">
+					
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+				<!-- ******************************* Inicio para o header ******************************* -->			
+							<header class="modal-header">
+								<h5> Confirmar remoção </h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Fechar"> 
+										<span aria-hidden="true">X</span>
+									</button>
+							</header>
+				<!-- ***********************************  Inicio para o corpo do modal ***************************************** -->
+							
+							<div class="modal-body">
+								<p class="modal-message"> Confirmar a exclusão? </p> 
+								
+							</div>
+				<!-- *********************************** Final: para o corpo do modal **************************************** -->			
+				<!-- *********************************** Inicio para o footer do modal ***************************************  -->			
+							<footer class="modal-footer">
+									<button type="button" class="btn btn-secondary" data-dismiss="modal"> Não</button>
+									<form style="display: inline-block" method="post">
+											<button type="submit" class="btn btn-danger"> Sim</button>
+									</form> 
+							</footer>	
+				<!--  Final: Footer do modal -->
+						</div>
+					</div> 
+				</div>
+				<!--  Final: Para tela modal de excluir um usuario  -->
+			
+			</div>
+		</div>	
+		<!-- Final: para o botão de adicionar novo  -->
+		
+		
+		
+		</div>
+
+</body>
+</html>
